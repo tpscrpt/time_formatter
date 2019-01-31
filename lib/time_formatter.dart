@@ -1,6 +1,10 @@
 String formatTime(int timestamp) {
   int difference = DateTime.now().millisecondsSinceEpoch - timestamp;
 
+  if (difference < 60000) {
+    return countSeconds(difference);
+  }
+
   if (difference < 3600000) {
     return countMinutes(difference);
   }
@@ -24,6 +28,11 @@ String formatTime(int timestamp) {
   else return countYears(difference);
 }
 
+String countSeconds(int difference) {
+  int count = (difference / 1000).truncate();
+  return count > 1 ? count.toString() + ' seconds' : 'Just now';
+}
+
 String countMinutes(int difference) {
   int count = (difference / 60000).truncate();
   return count.toString() + (count > 1 ? ' minutes' : ' minute');
@@ -41,7 +50,7 @@ String countDays(int difference) {
 }
 
 String countWeeks(int difference) {
-  int count = (difference / 604800000).round();
+  int count = (difference / 604800000).truncate();
   if (count > 3) {
     return '1 month';
   }
