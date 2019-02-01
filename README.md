@@ -19,6 +19,7 @@ String formatted = formatTime(1548979724964)
 ## Format
 Here's a mini truth table for the format of the value returned by the function:
  > < 1 second         : "Just now"
+ >
  > < 60 seconds       : "X seconds" (2-59)
  > < 2 minutes        : "1 minute" 
  > < 60 minutes       : "X minutes" (2-59)
