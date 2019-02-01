@@ -1,6 +1,6 @@
 name: time_formatter
 description: Format UNIX timestamps into human-readable strings in Dart; inspired by YouTube's time formatting habits.
-version: 1.0.0+3
+version: 1.0.0+4
 author: Jeremi Gendron <gendronjeremi@gmail.com>
 homepage: https://github.com/jeremigendron
 repository: https://github.com/jeremigendron/time_formatter
