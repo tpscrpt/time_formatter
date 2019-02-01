@@ -1,5 +1,5 @@
 # Time Formatter in Dart
-This library takes UNIX timestamps and converts them to pretty, human-readable time formats.
+This library takes UNIX (milliseconds) timestamps and converts them to pretty, human-readable time formats.
 
 ## Using
 Add the package to your pubspec.yaml
@@ -11,7 +11,7 @@ Import the library in a .dart file
 ```dart
 import 'package:time_formatter/time_formatter.dart';
 ```
-Format an arbitrary UNIX timestamp (int type) with formatTime()
+Format an arbitrary UNIX timestamp (int type, milliseconds since epoch) with formatTime()
 ```
 String formatted = formatTime(1548979724964)
 ```
