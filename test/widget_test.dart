@@ -229,4 +229,16 @@ void main() {
       });
     });
   });
+  test("example.dart", () {
+    String formatted = formatTime(
+      DateTime.now().subtract(
+        Duration(hours: 2)
+      ).millisecondsSinceEpoch
+    );
+
+    expect(
+      formatted,
+      "2 hours"
+    );
+  });
 }
