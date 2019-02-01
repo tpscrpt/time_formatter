@@ -26,25 +26,16 @@ String formatTime(int timestamp) {
 
   if (difference < 3600000) {
     return countMinutes(difference);
-  }
-
-  else if (difference < 86400000) {
+  } else if (difference < 86400000) {
     return countHours(difference);
-  }
-
-  else if (difference < 604800000) {
+  } else if (difference < 604800000) {
     return countDays(difference);
-  }
-
-  else if (difference / 1000 < 2419200) {
+  } else if (difference / 1000 < 2419200) {
     return countWeeks(difference);
-  }
-
-  else if (difference / 1000 < 31536000) {
+  } else if (difference / 1000 < 31536000) {
     return countMonths(difference);
-  }
-
-  else return countYears(difference);
+  } else
+    return countYears(difference);
 }
 
 String countSeconds(int difference) {
@@ -65,7 +56,6 @@ String countHours(int difference) {
 String countDays(int difference) {
   int count = (difference / 86400000).truncate();
   return count.toString() + (count > 1 ? ' days' : ' day');
-
 }
 
 String countWeeks(int difference) {
@@ -82,13 +72,10 @@ String countMonths(int difference) {
   if (count > 12) {
     return '1 year';
   }
-  return count.toString() + (count > 1 ? ' months': ' month');
+  return count.toString() + (count > 1 ? ' months' : ' month');
 }
 
 String countYears(int difference) {
   int count = (difference / 31536000000).truncate();
   return count.toString() + (count > 1 ? ' years' : ' year');
 }
-
-
-
