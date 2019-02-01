@@ -17,14 +17,16 @@
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+/// Formats a given UNIX millisecond timestamp into a human-readable string.
+///
+/// Progresses from smallest unit (second), to largest (years)
 String formatTime(int timestamp) {
+  /// The number of milliseconds that have passed since the timestamp
   int difference = DateTime.now().millisecondsSinceEpoch - timestamp;
 
   if (difference < 60000) {
     return countSeconds(difference);
-  }
-
-  if (difference < 3600000) {
+  } else if (difference < 3600000) {
     return countMinutes(difference);
   } else if (difference < 86400000) {
     return countHours(difference);
@@ -38,26 +40,41 @@ String formatTime(int timestamp) {
     return countYears(difference);
 }
 
+/// Converts the time difference to a number of seconds.
+/// This function truncates to the lowest second.
+///   returns ("Just now" OR "X seconds")
 String countSeconds(int difference) {
   int count = (difference / 1000).truncate();
   return count > 1 ? count.toString() + ' seconds' : 'Just now';
 }
 
+/// Converts the time difference to a number of minutes.
+/// This function truncates to the lowest minute.
+///   returns ("1 minute" OR "X minutes")
 String countMinutes(int difference) {
   int count = (difference / 60000).truncate();
   return count.toString() + (count > 1 ? ' minutes' : ' minute');
 }
 
+/// Converts the time difference to a number of hours.
+/// This function truncates to the lowest hour.
+///   returns ("1 hour" OR "X hours")
 String countHours(int difference) {
   int count = (difference / 3600000).truncate();
   return count.toString() + (count > 1 ? ' hours' : ' hour');
 }
 
+/// Converts the time difference to a number of days.
+/// This function truncates to the lowest day.
+///   returns ("1 day" OR "X days")
 String countDays(int difference) {
   int count = (difference / 86400000).truncate();
   return count.toString() + (count > 1 ? ' days' : ' day');
 }
 
+/// Converts the time difference to a number of weeks.
+/// This function truncates to the lowest week.
+///   returns ("1 week" OR "X weeks" OR "1 month")
 String countWeeks(int difference) {
   int count = (difference / 604800000).truncate();
   if (count > 3) {
@@ -66,6 +83,9 @@ String countWeeks(int difference) {
   return count.toString() + (count > 1 ? ' weeks' : ' week');
 }
 
+/// Converts the time difference to a number of months.
+/// This function rounds to the nearest month.
+///   returns ("1 month" OR "X months" OR "1 year")
 String countMonths(int difference) {
   int count = (difference / 2628003000).round();
   count = count > 0 ? count : 1;
@@ -75,6 +95,9 @@ String countMonths(int difference) {
   return count.toString() + (count > 1 ? ' months' : ' month');
 }
 
+/// Converts the time difference to a number of years.
+/// This function truncates to the lowest year.
+///   returns ("1 year" OR "X years")
 String countYears(int difference) {
   int count = (difference / 31536000000).truncate();
   return count.toString() + (count > 1 ? ' years' : ' year');
