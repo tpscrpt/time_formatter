@@ -5,7 +5,7 @@ author: Jeremi Gendron <gendronjeremi@gmail.com>
 homepage: https://github.com/jeremigendron
 repository: https://github.com/jeremigendron/time_formatter
 issue_tracker: https://github.com/jeremigendron/time_formatter/issues
-documentation: https://github.com/jeremigendron/time_formater/tree/master/README.md
+documentation: https://github.com/jeremigendron/time_formatter/tree/master/README.md
 
 environment:
   sdk: ">=2.0.0 <3.0.0"
