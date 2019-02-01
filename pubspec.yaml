@@ -1,6 +1,6 @@
 name: time_formatter
 description: Format timestamps like YouTube
-version: 1.0.0+1
+version: 1.0.0+2
 author: Jeremi Gendron <gendronjeremi@gmail.com>
 homepage: https://github.com/jeremigendron
 repository: https://github.com/jeremigendron/time_formatter
