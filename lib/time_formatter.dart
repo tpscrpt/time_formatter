@@ -23,21 +23,24 @@
 String formatTime(int timestamp) {
   /// The number of milliseconds that have passed since the timestamp
   int difference = DateTime.now().millisecondsSinceEpoch - timestamp;
+  String result;
 
   if (difference < 60000) {
-    return countSeconds(difference);
+    result = countSeconds(difference);
   } else if (difference < 3600000) {
-    return countMinutes(difference);
+    result = countMinutes(difference);
   } else if (difference < 86400000) {
-    return countHours(difference);
+    result = countHours(difference);
   } else if (difference < 604800000) {
-    return countDays(difference);
+    result = countDays(difference);
   } else if (difference / 1000 < 2419200) {
-    return countWeeks(difference);
+    result = countWeeks(difference);
   } else if (difference / 1000 < 31536000) {
-    return countMonths(difference);
+    result = countMonths(difference);
   } else
-    return countYears(difference);
+    result = countYears(difference);
+
+  return !result.startsWith("J") ? result + ' ago' : result; 
 }
 
 /// Converts the time difference to a number of seconds.

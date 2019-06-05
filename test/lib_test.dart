@@ -35,7 +35,7 @@ void main() {
       String value = formatTime(
           DateTime.now().subtract(Duration(minutes: 1)).millisecondsSinceEpoch);
 
-      expect(value, "1 minute");
+      expect(value, "1 minute ago");
     });
     test("Multiple minutes", () {
       List<int> cases = List(500)
@@ -58,7 +58,7 @@ void main() {
       String value = formatTime(
           DateTime.now().subtract(Duration(hours: 1)).millisecondsSinceEpoch);
 
-      expect(value, "1 hour");
+      expect(value, "1 hour ago");
     });
     test("Multiple hours", () {
       List<int> cases = List(500)
@@ -81,7 +81,7 @@ void main() {
       String value = formatTime(
           DateTime.now().subtract(Duration(days: 1)).millisecondsSinceEpoch);
 
-      expect(value, "1 day");
+      expect(value, "1 day ago");
     });
     test("Multiple days", () {
       List<int> cases = List(500)
@@ -104,7 +104,7 @@ void main() {
       String value = formatTime(
           DateTime.now().subtract(Duration(days: 7)).millisecondsSinceEpoch);
 
-      expect(value, "1 week");
+      expect(value, "1 week ago");
     });
     test("Multiple weeks", () {
       List<int> cases = List(500)
@@ -127,7 +127,7 @@ void main() {
       String value = formatTime(
           DateTime.now().subtract(Duration(days: 28)).millisecondsSinceEpoch);
 
-      expect(value, "1 month");
+      expect(value, "1 month ago");
     });
     test("Multiple months", () {
       List<int> cases = List(500)
@@ -151,7 +151,7 @@ void main() {
       String value = formatTime(
           DateTime.now().subtract(Duration(days: 365)).millisecondsSinceEpoch);
 
-      expect(value, "1 year");
+      expect(value, "1 year ago");
     });
     test("Multiple years", () {
       List<int> cases = List(500)
@@ -173,6 +173,6 @@ void main() {
     String formatted = formatTime(
         DateTime.now().subtract(Duration(hours: 2)).millisecondsSinceEpoch);
 
-    expect(formatted, "2 hours");
+    expect(formatted, "2 hours ago");
   });
 }

@@ -1,3 +1,7 @@
+# 1.0.0+5
+ - Add " ago" to everything except "Just now"
+ - Update tests
+
 # 1.0.0+4
  - Add dartdoc entries
  - Add CHANGELOG.md
