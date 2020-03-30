@@ -1,17 +1,14 @@
 /*    
   Time formatting library for Dart programs.
   Copyright (C) 2019  Jeremi Gendron <gendronjeremi@gmail.com>
-
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
-
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-
   You should have received a copy of the GNU General Public License along
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -20,10 +17,19 @@
 /// Formats a given UNIX millisecond timestamp into a human-readable string.
 ///
 /// Progresses from smallest unit (second), to largest (years)
-String formatTime(int timestamp) {
+String formatTime(int timestamp, {String pastsuffix = '', String futuresuffix = ''}) {
   /// The number of milliseconds that have passed since the timestamp
-  int difference = DateTime.now().millisecondsSinceEpoch - timestamp;
+  int differenceReal = DateTime.now().millisecondsSinceEpoch - timestamp;
+  int difference = differenceReal.abs();
   String result;
+  
+  String suffix;
+
+  if (differenceReal > 0) {
+    suffix = pastsuffix;
+  } else {
+    suffix = futuresuffix;
+  }
 
   if (difference < 60000) {
     result = countSeconds(difference);
@@ -40,7 +46,7 @@ String formatTime(int timestamp) {
   } else
     result = countYears(difference);
 
-  return !result.startsWith("J") ? result + ' ago' : result; 
+  return !result.startsWith("J") ? result + ' ' + suffix : result; 
 }
 
 /// Converts the time difference to a number of seconds.
