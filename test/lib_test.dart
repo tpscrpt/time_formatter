@@ -14,7 +14,7 @@ void main() {
       expect(value, "Just now");
     });
     test("Multiple seconds", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   milliseconds:
@@ -38,7 +38,7 @@ void main() {
       expect(value, "1 minute ago");
     });
     test("Multiple minutes", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   seconds: Random().nextInt(3479) + 120 // minutes are truncated
@@ -61,7 +61,7 @@ void main() {
       expect(value, "1 hour ago");
     });
     test("Multiple hours", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   minutes: Random().nextInt(1319) + 120 // hours are truncated
@@ -84,7 +84,7 @@ void main() {
       expect(value, "1 day ago");
     });
     test("Multiple days", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   hours: Random().nextInt(119) + 48 // days are truncated
@@ -107,7 +107,7 @@ void main() {
       expect(value, "1 week ago");
     });
     test("Multiple weeks", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   days: Random().nextInt(14) + 14 // weeks are truncated
@@ -130,7 +130,7 @@ void main() {
       expect(value, "1 month ago");
     });
     test("Multiple months", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   days: Random().nextInt(319) +
@@ -154,7 +154,7 @@ void main() {
       expect(value, "1 year ago");
     });
     test("Multiple years", () {
-      List<int> cases = List(500)
+      List<int> cases = List.filled(500, 0)
           .map(((_) => DateTime.now()
               .subtract(Duration(
                   days: Random().nextInt(50000) + 365 * 2 // years are truncated
